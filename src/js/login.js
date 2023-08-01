@@ -10,6 +10,7 @@ function login(event) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      // authorization: "Bearer token",
     },
     body: JSON.stringify(loginData),
   })
@@ -17,7 +18,8 @@ function login(event) {
     .then((data) => {
       // Xu ly logic neu can!
       if (data.user) {
-        localStorage.setItem("user", data.user);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("token", JSON.stringify(data.accessToken));
         alert(data.message);
       }
     })

@@ -22,8 +22,12 @@ function register(event) {
       // Xu ly logic neu can!
       console.log(data);
       alert(data.message, data.user.email);
+      window.location.href = "http://127.0.0.1:5501/login.html";
     })
-    .catch((error) => alert("Đăng ký thất bại!"));
+    .catch((error) => {
+      alert("Đăng ký thất bại!");
+      console.log(error);
+    });
 }
 
 const formRegister = document.getElementById("register-from");
